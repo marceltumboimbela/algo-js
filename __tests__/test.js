@@ -3,6 +3,7 @@ import { brackets } from "../parentheses_permutation";
 import { permuteText } from "../string_permutation";
 import { TreeNode, findBinaryTreeMaximumDepth, isBinaryTreeSame } from "../tree";
 import { bfs, dfs, bfsTree, dfsTree } from "../graph";
+import { flatten, flattenv2 } from "../flatten_array";
 
 test('', () => {
   console.log(longestSubstringWithoutRepeating("abcacbdd"))
@@ -76,4 +77,11 @@ test('', () => {
 
   console.log(bfsTree(root))
   console.log(dfsTree(root))
+})
+
+test.only('flatten', () => {
+  const arr = [1, [2, 3, [4, 5, 6]]]
+
+  console.log(flatten(arr))
+  console.log(flattenv2(arr))
 })
