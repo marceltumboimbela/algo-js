@@ -19,3 +19,13 @@ export function flattenv2(arr) {
     }
   }, [])
 }
+
+export function flattenv3(arr) {
+  if(!Array.isArray(arr)){
+    return [arr]
+  } else {
+    return arr.reduce((prev, curr) => {
+      return prev.concat(flattenv3(curr))
+    }, [])
+  }
+}

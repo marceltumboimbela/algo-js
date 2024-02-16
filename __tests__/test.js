@@ -1,16 +1,18 @@
 import { longestSubstringWithoutRepeating, longestSubstringWithoutRepeatingv2, longestSubstringWithAtMostTwoDistinctCharacters } from "../substring";
-import { brackets } from "../parentheses_permutation";
+import { brackets, generateParentheses } from "../parentheses_permutation";
 import { permuteText } from "../string_permutation";
 import { TreeNode, findBinaryTreeMaximumDepth, isBinaryTreeSame } from "../tree";
 import { bfs, dfs, bfsTree, dfsTree } from "../graph";
-import { flatten, flattenv2 } from "../flatten_array";
+import { flatten, flattenv2, flattenv3 } from "../flatten_array";
 
-test('', () => {
-  console.log(longestSubstringWithoutRepeating("abcacbdd"))
+test.only('', () => {
+  // console.log(longestSubstringWithoutRepeating("abcacbdd"))
 
   const result = []
   brackets(3, 0, "", result)
   console.log(result)
+
+  console.log(generateParentheses(3))
 })
 
 test('', () => {
@@ -79,9 +81,10 @@ test('', () => {
   console.log(dfsTree(root))
 })
 
-test.only('flatten', () => {
+test('flatten', () => {
   const arr = [1, [2, 3, [4, 5, 6]]]
 
   console.log(flatten(arr))
   console.log(flattenv2(arr))
+  console.log(flattenv3(arr))
 })
