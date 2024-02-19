@@ -73,3 +73,33 @@ export function dfsTree(node){
   }
   return result
 }
+
+export function dfsTreePostorder(node){
+  const result = []
+  function helper(node){
+    if(node == null){
+      return
+    }
+
+    helper(node.left)
+    helper(node.right)
+    result.push(node.value)
+  }
+  helper(node)
+  return result
+}
+
+export function dfsTreeInorder(node){
+  const result = []
+  function helper(node){
+    if(node == null){
+      return
+    }
+
+    helper(node.left)
+    result.push(node.value)
+    helper(node.right)
+  }
+  helper(node)
+  return result
+}

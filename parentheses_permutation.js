@@ -14,17 +14,22 @@ export function brackets(left, right, text, result){
 
 export function generateParentheses(n) {
   let result = []
-  function bracket(combination, openCount, closeCount){
+  function backtrack(combination, openCount, closeCount){
     if(combination.length === 2*n){
       result.push(combination)
+      return
     }
     if(openCount < n){
-      bracket(combination + '(', openCount + 1, closeCount)
+      combination = combination + '('
+      backtrack(combination, openCount + 1, closeCount)
+      combination = combination.slice(0, combination.length - 1)
     }
     if(closeCount < openCount){
-      bracket(combination + ')', openCount, closeCount + 1)
+      combination = combination + ')'
+      backtrack(combination, openCount, closeCount + 1)
+      combination = combination.slice(0, combination.length - 1)
     }
   }
-  bracket("", 0, 0)
+  backtrack("", 0, 0)
   return result
 }

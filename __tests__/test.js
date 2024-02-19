@@ -1,11 +1,12 @@
 import { longestSubstringWithoutRepeating, longestSubstringWithoutRepeatingv2, longestSubstringWithAtMostTwoDistinctCharacters } from "../substring";
 import { brackets, generateParentheses } from "../parentheses_permutation";
-import { permuteText } from "../string_permutation";
+import { permuteText, permuteTextv2, permuteNumberArray, permuteNumberArrayv2 } from "../string_permutation";
 import { TreeNode, findBinaryTreeMaximumDepth, isBinaryTreeSame } from "../tree";
-import { bfs, dfs, bfsTree, dfsTree } from "../graph";
+import { bfs, dfs, bfsTree, dfsTree, dfsTreePostorder, dfsTreeInorder } from "../graph";
 import { flatten, flattenv2, flattenv3 } from "../flatten_array";
+import { nQueen } from "../n_queen";
 
-test.only('', () => {
+test('generateParentheses', () => {
   // console.log(longestSubstringWithoutRepeating("abcacbdd"))
 
   const result = []
@@ -15,10 +16,15 @@ test.only('', () => {
   console.log(generateParentheses(3))
 })
 
-test('', () => {
+test.only('permuteText', () => {
   const result = []
   permuteText("abc", 0, 2, result)
   console.log(result)
+
+  console.log(permuteTextv2("abc"))
+
+  console.log(permuteNumberArray([1,2,3]))
+  console.log(permuteNumberArrayv2([1,2,3]))
 })
 
 test('', () => {
@@ -79,6 +85,8 @@ test('', () => {
 
   console.log(bfsTree(root))
   console.log(dfsTree(root))
+  console.log(dfsTreePostorder(root))
+  console.log(dfsTreeInorder(root))
 })
 
 test('flatten', () => {
@@ -87,4 +95,8 @@ test('flatten', () => {
   console.log(flatten(arr))
   console.log(flattenv2(arr))
   console.log(flattenv3(arr))
+})
+
+test('nQueen', () => {
+  console.log(nQueen(4))
 })
